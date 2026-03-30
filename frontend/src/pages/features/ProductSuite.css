@@ -1,0 +1,22 @@
+/* Styling the non-active slides */
+.product-swiper .swiper-slide {
+  transition: all 0.5s ease;
+  opacity: 0.4; /* Makes side cards faint */
+  filter: blur(2px);
+  transform: scale(0.8) !important;
+}
+
+/* Styling the center/active slide */
+.product-swiper .swiper-slide-active {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1) !important;
+  z-index: 10;
+}
+
+/* Hide navigation on very small mobiles if needed */
+@media (max-width: 640px) {
+  .swiper-button-prev-custom, .swiper-button-next-custom {
+    display: none;
+  }
+}
