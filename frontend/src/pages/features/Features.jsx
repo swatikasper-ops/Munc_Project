@@ -48,9 +48,9 @@ import WhyTrust from "./WHY_TRUST";
 
 // import ims from "../../assets/HomeSection/HomeScreenImg/IMS 1.png";
 import ims from "../../assets/HomeSection/HomeScreenImg/IMS.png";
-import hrms from "../../assets/HomeSection/HomeScreenImg/CRM 1.png";
-import lms from "../../assets/HomeSection/HomeScreenImg/LMS 1.png";
-import sms from "../../assets/HomeSection/HomeScreenImg/SMS 1.png";
+import hrms from "../../assets/HrmsImg/HRMS_NEW.png";
+import lms from "../../assets/LmsImg/LMS22.png";
+import sms from "../../assets/SmsImg/sms_img1.png";
 import hotel from "../../assets/HomeSection/HomeScreenImg/IMS 1.png";
 
 // Floating Icons

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import HRM from "../../assets/products/HRMS.png";
-import LMS from "../../assets/products/LMS.png";
+import HRM from "../../assets/HrmsImg/HRMS_NEW.png";
+import LMS from "../../assets/LmsImg/LMS22.png";
 import Hotel from "../../assets/products/HMS.png";
 import IMS from "../../assets/products/IMS.png";
-import SMS from "../../assets/products/SMS.png";
+import SMS from "../../assets/SmsImg/sms_img1.png";
 import Logo from "../../assets/IMS/LOGOsmall.svg";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';

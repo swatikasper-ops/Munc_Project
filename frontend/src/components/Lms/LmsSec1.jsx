@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import B_IMS from "../../assets/LmsImg/BROWSER-LMS.png"; // LMS Image
+import B_IMS from "../../assets/LmsImg/LMS22.png"; // LMS Image
 import Cloud1 from "../../assets/LmsImg/cloud1.png";
 import Cloud2 from "../../assets/LmsImg/cloud2.png";
 import Green from "../../assets/LmsImg/green.png";
@@ -186,7 +186,7 @@ const LmsSec1 = () => {
               <img
                 src={Orange}
                 className="
-                  absolute bottom-[-8%] right-[8%]
+                  absolute bottom-[-15%] right-[8%]
                   w-[50px] sm:w-[70px] md:w-[90px] lg:w-[120px]
                 "
               />
@@ -195,7 +195,7 @@ const LmsSec1 = () => {
               <img
                 src={Pink}
                 className="
-                  absolute bottom-[-8%] left-[2%]
+                  absolute bottom-[-15%] left-[2%]
                   w-[50px] sm:w-[70px] md:w-[90px] lg:w-[120px]
                 "
               />

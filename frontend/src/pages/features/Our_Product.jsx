@@ -1,8 +1,10 @@
 import React from "react";
 import IMS from "../../assets/HomeSection/Product_Img/IMS.png";
-import HRMS from "../../assets/HomeSection/Product_Img/HRMS.png";
-import LMS from "../../assets/HomeSection/Product_Img/LMS.png";
-import SMS from "../../assets/HomeSection/Product_Img/SMS.png";
+
+import HRM from "../../assets/HrmsImg/HRMS_NEW.png";
+import LMS from "../../assets/LmsImg/LMS22.png";
+import SMS from "../../assets/SmsImg/sms_img1.png";
+
 import { Link } from "react-router";
 
 const Our_Product = () => {
@@ -19,7 +21,7 @@ const Our_Product = () => {
       name: "HR Management Software",
       description:
         "Automate payroll, attendance, and employee data in minutes.",
-      img: HRMS,
+      img: HRM,
       slug: "human-resource-management-system",
     },
     {
@@ -46,7 +48,7 @@ const Our_Product = () => {
         Our Smart Business Solutions
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-2  justify-items-center" >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-2  justify-items-center">
         {products.map((product) => (
           <div
             key={product.id}

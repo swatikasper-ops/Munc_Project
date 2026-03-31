@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import B_IMS from "../../assets/HrmsImg/BROWSER-HRMS.png";
+import B_IMS from "../../assets/HrmsImg/HRMS_NEW.png";
 import Cloud1 from "../../assets/HrmsImg/cloud1.png";
 import Cloud2 from "../../assets/HrmsImg/cloud2.png";
 import Green from "../../assets/HrmsImg/green.png";
@@ -156,19 +156,22 @@ const HrmsSection1 = () => {
 
                 lg:pr-[0px] xl:pr-[0px] 2xl:pr-[0px]
               "
-            >
-            <img
+            >{/* IMAGE */}
+<img
   src={B_IMS}
   alt="HRMS Dashboard"
   className="
     w-full
-    sm:w-[500px]
-    md:w-[600px]
-    lg:w-[750px]
-    xl:w-[900px]
-    2xl:w-[1000px]
+    sm:w-[600px]
+    md:w-[700px]
+    lg:w-[950px]
+    xl:w-[1100px]
+    2xl:w-[1300px]
     max-w-full
     h-auto
+    md:max-h-[320px]
+    xl:max-h-[420px]
+    2xl:max-h-[550px]
     object-contain
   "
 />
@@ -188,7 +191,7 @@ const HrmsSection1 = () => {
               <img
                 src={Orange}
                 className="
-                  absolute bottom-[-8%] right-[8%]
+                  absolute bottom-[-10%] right-[8%]
                   w-[50px] sm:w-[70px] md:w-[90px] lg:w-[120px]
                 "
               />
@@ -197,7 +200,7 @@ const HrmsSection1 = () => {
               <img
                 src={Pink}
                 className="
-                  absolute bottom-[-8%] left-[2%]
+                  absolute bottom-[-10%] left-[2%]
                   w-[50px] sm:w-[70px] md:w-[90px] lg:w-[120px]
                 "
               />
