@@ -3,34 +3,54 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const faqs = [
   {
-    question: "Q1. What is an Inventory Management System (IMS)?",
+    question: "1. What is Inventory Management Software in MUN-C?",
     answer:
-      "It’s a software that automates the process of tracking inventory, purchases, sales, and warehouse operations in real time.",
+      "MUN-C Inventory Management Software helps businesses track, manage, and control stock in real time. It allows you to monitor inventory levels, manage purchases and sales, and reduce manual errors. This ensures better stock visibility and smoother day-to-day operations.",
   },
   {
-    question: "Q2. Can it manage multiple warehouses?",
+    question: "2. How does MUN-C help in stock management?",
     answer:
-      "Yes. MUN-C IMS allows centralized control of multiple branches or warehouses from a single dashboard.",
+      "MUN-C provides real-time stock tracking with detailed insights on available, low, and out-of-stock items. It helps manage stock inwards and outwards, track inventory across locations, and maintain accurate records, ensuring you always know your exact inventory position.",
   },
   {
-    question: "Q3. Does it support barcode scanning?",
+    question: "3. Can I manage multiple warehouses or locations?",
     answer:
-      "Absolutely. Barcode and QR code scanning make stock entry and billing faster and error-free.",
+      "Yes, MUN-C allows you to manage inventory across multiple warehouses or business locations. You can track stock movement between locations, monitor availability, and maintain centralized control. This makes it easier to handle operations for growing or multi-branch businesses.",
   },
   {
-    question: "Q4. Can I generate invoices and GST reports?",
+    question: "4. Does MUN-C support barcode scanning?",
     answer:
-      "Yes. You can create tax-ready invoices instantly and generate detailed GST reports for compliance.",
+      "Yes, MUN-C supports barcode-based inventory management. You can scan products for faster billing, stock updates, and tracking. This reduces manual entry errors, speeds up operations, and improves overall efficiency, especially in retail and warehouse environments.",
   },
   {
-    question: "Q5. Is it suitable for small and medium businesses?",
+    question: "5. Can I track stock in units like bags, boxes, or MT?",
     answer:
-      "Yes. MUN-C IMS is scalable — whether you’re a small retailer or a large enterprise, it adapts to your needs.",
+      "Yes, MUN-C allows flexible unit management such as bags, boxes, pieces, or metric tons. You can define how many units are included in bulk quantities, helping you understand exact stock distribution and weight calculations for better inventory planning and dispatch.",
   },
   {
-    question: "Q6. Will I get alerts for low stock?",
+    question: "6. Does the software provide low stock alerts?",
     answer:
-      "Yes. You’ll receive instant notifications when items reach their reorder point to prevent stockouts.",
+      "Yes, MUN-C provides automatic low stock alerts based on predefined thresholds. You get notified when inventory reaches a critical level, helping you restock on time. This prevents stockouts, avoids business disruptions, and ensures smooth supply chain operations.",
+  },
+  {
+    question: "7. Can I generate inventory reports?",
+    answer:
+      "MUN-C offers detailed inventory reports including stock summary, stock movement, purchase, and sales reports. These reports provide valuable insights into your business performance, helping you make informed decisions and improve inventory planning and control.",
+  },
+  {
+    question: "8. Is inventory integrated with billing and sales?",
+    answer:
+      "Yes, MUN-C integrates inventory directly with billing and sales modules. Whenever a product is sold, stock is automatically updated. This eliminates manual updates, reduces errors, and ensures that your inventory data always remains accurate and up to date.",
+  },
+  {
+    question: "9. Can I manage suppliers and purchase orders?",
+    answer:
+      "Yes, MUN-C allows you to manage suppliers, create purchase orders, and track incoming stock. You can maintain supplier records, monitor order status, and streamline procurement processes, making your purchasing system more organized and efficient.",
+  },
+  {
+    question: "10. Is MUN-C suitable for small and large businesses?",
+    answer:
+      "Yes, MUN-C is designed for both small and growing businesses. It scales according to your needs, whether you manage a single store or multiple warehouses. Its flexible features make it suitable for various industries and business sizes.",
   },
 ];
 
@@ -97,9 +117,7 @@ const FAQ = () => {
                 {faq.answer}
               </p>
 
-              <span className="text-[#007AFF] text-sm mt-1 inline-block hover:underline">
-                Know More
-              </span>
+            
             </div>
           </div>
         ))}

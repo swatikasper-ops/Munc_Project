@@ -1,5 +1,7 @@
 /* BlogPost.css */
-
+.html {
+  scroll-behavior: smooth;
+}
 
 
 /* Container padding adjustments for responsiveness */

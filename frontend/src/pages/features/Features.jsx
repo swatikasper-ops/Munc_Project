@@ -48,10 +48,10 @@ import WhyTrust from "./WHY_TRUST";
 
 // import ims from "../../assets/HomeSection/HomeScreenImg/IMS 1.png";
 import ims from "../../assets/HomeSection/HomeScreenImg/IMS.png";
-import hrms from "../../assets/HrmsImg/HRMS_NEW.png";
+import hrms from "../../assets/HrmsImg/new_img.png";
 import lms from "../../assets/LmsImg/LMS22.png";
 import sms from "../../assets/SmsImg/sms_img1.png";
-import hotel from "../../assets/HomeSection/HomeScreenImg/IMS 1.png";
+import hotel from "../../assets/hms-hero-dash.png";
 
 // Floating Icons
 import float1 from "../../assets/HomeSection/FloatingIcons/Chart.svg";
@@ -229,11 +229,36 @@ const Features = () => {
 
   // tabs
   const tabs = [
-    { label: "Inventory", icon: <FaBoxOpen />, img: ims, link: '/products/inventory-management-system' },
-    { label: "People", icon: <FaPeopleRoof />, img: hrms, link: '/products/human-resource-management-system' },
-    { label: "Leads", icon: <IoMagnetSharp />, img: lms, link: '/products/lead-management-system' },
-    { label: "Schools", icon: <TbSchool />, img: sms, link: '/products/school-management-system' },
-    { label: "Hotels", icon: <BsBuildingFill />, img: hotel, link: '/products/hotel-management-system' },
+    {
+      label: "Inventory",
+      icon: <FaBoxOpen />,
+      img: ims,
+      link: "/products/inventory-management-system",
+    },
+    {
+      label: "People",
+      icon: <FaPeopleRoof />,
+      img: hrms,
+      link: "/products/human-resource-management-system",
+    },
+    {
+      label: "Leads",
+      icon: <IoMagnetSharp />,
+      img: lms,
+      link: "/products/lead-management-system",
+    },
+    {
+      label: "Schools",
+      icon: <TbSchool />,
+      img: sms,
+      link: "/products/school-management-system",
+    },
+    {
+      label: "Hotels",
+      icon: <BsBuildingFill />,
+      img: hotel,
+      link: "/products/hotel-management-system",
+    },
   ];
 
   const [activeTab, setActiveTab] = useState(0);
@@ -259,15 +284,16 @@ const Features = () => {
             overflow: "hidden",
           }}
         >
-          <div className="curved-bg"
+          <div
+            className="curved-bg"
             style={{
               borderBottomLeftRadius: "50%",
               borderBottomRightRadius: "50%",
-              background: 'linear-gradient(47deg, #4DB5FF 0%, #004CAF 100%)',
+              background: "linear-gradient(47deg, #4DB5FF 0%, #004CAF 100%)",
               // position: "absolute",
               zIndex: 1,
               width: "200%",
-             
+
               // overflow: "hidden",
             }}
           ></div>
@@ -284,7 +310,7 @@ const Features = () => {
             style={{
               // backgroundImage: `url(${BgImage})`,
               // background: 'linear-gradient(47deg, #4DB5FF 0%, #004CAF 100%)'
-              position: 'absolute',
+              position: "absolute",
               zIndex: 2,
             }}
           >
@@ -398,7 +424,7 @@ const Features = () => {
                   style={{
                     fontFamily: "Public Sans",
                     fontWeight: "700",
-                        marginTop: "2.5rem !important"
+                    marginTop: "2.5rem !important",
                   }}
                 >
                   <span>
@@ -471,11 +497,16 @@ const Features = () => {
                   gap: 16,
                   display: "inline-flex",
                   zIndex: 10,
-                  marginTop:"2px"
+                  marginTop: "2px",
                 }}
               >
-                <Link
-                  to="/products/human-resource-management-system"
+                <div
+                  onClick={() => {
+                    const section = document.getElementById("products-section");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                   style={{
                     paddingLeft: 16,
                     paddingRight: 16,
@@ -488,28 +519,49 @@ const Features = () => {
                     alignItems: "center",
                     gap: 8,
                     display: "flex",
-                     marginTop:20,
-                    textDecoration: "none",
+                    marginTop: 20,
+                    cursor: "pointer",
                   }}
                 >
                   <div
                     style={{
                       color: "white",
-                     
                       fontSize: 16,
                       fontFamily: "Public Sans",
                       fontWeight: "400",
-                      wordWrap: "break-word",
                       lineHeight: "16px",
                     }}
                   >
                     Our Products
                   </div>
-                </Link>
+                </div>
                 <div
                   onClick={() => setShowForm(true)}
-                  style={{ marginTop:20,paddingLeft: 16, paddingRight: 16, paddingTop: 12, paddingBottom: 12, background: 'var(--White, white)', borderRadius: 4, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex', cursor: 'pointer' }}>
-                  <div style={{ color: '#0079FE', fontSize: '16px', fontFamily: 'Public Sans', fontWeight: '400', lineHeight: '16px', wordWrap: 'break-word' }}>
+                  style={{
+                    marginTop: 20,
+                    paddingLeft: 16,
+                    paddingRight: 16,
+                    paddingTop: 12,
+                    paddingBottom: 12,
+                    background: "var(--White, white)",
+                    borderRadius: 4,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: 8,
+                    display: "inline-flex",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#0079FE",
+                      fontSize: "16px",
+                      fontFamily: "Public Sans",
+                      fontWeight: "400",
+                      lineHeight: "16px",
+                      wordWrap: "break-word",
+                    }}
+                  >
                     Book a Free Demo
                   </div>
                 </div>
@@ -550,42 +602,47 @@ const Features = () => {
               </div>
             </div> */}
 
-           <div className="w-full flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-[10px] lg:gap-[12px] mt-12 md:mt-[60px] px-4 lg:mt-8 xl:mt-5 " style={{ zIndex: 10 }}>
-  {tabs.map((tab, index) => {
-    const isActive = activeTab === index;
-    return (
-      <div
-        key={index}
-        onClick={() => {
-          setActiveTab(index);
-          swiperRef.current?.slideToLoop(index);
-        }}
-        className={`px-3 py-2 sm:px-4 cursor-pointer transition-all duration-300 flex items-center gap-2 border-b-2 ${
-          isActive ? "border-white" : "border-transparent"
-        }`}
-      >
-        <div className="text-[14px] sm:text-[18px] lg:text-[20px] text-white">
-          {tab.icon}
-        </div>
+            <div
+              id="products-section"
+              className="w-full flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-[10px] lg:gap-[12px] mt-24 sm:mt-28 md:mt-32 lg:mt-20 xl:mt-16 px-4"
+              style={{ zIndex: 10 }}
+            >
+              {tabs.map((tab, index) => {
+                const isActive = activeTab === index;
+                return (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      setActiveTab(index);
+                      swiperRef.current?.slideToLoop(index);
+                    }}
+                    className={`px-3 py-2 sm:px-4 cursor-pointer transition-all duration-300 flex items-center gap-2 border-b-2 ${
+                      isActive ? "border-white" : "border-transparent"
+                    }`}
+                  >
+                    <div className="text-[14px] sm:text-[18px] lg:text-[20px] text-white">
+                      {tab.icon}
+                    </div>
 
-        <div
-          className="text-[11px] sm:text-[13px] md:text-[14px] lg:text-[16px]"
-          style={{
-            color: isActive ? "#FFFFFF" : "#E2E8F0",
-            fontFamily: "Public Sans",
-            fontWeight: isActive ? "700" : "400",
-          }}
-        >
-          {tab.label}
-        </div>
-      </div>
-    );
-  })}
-</div>
+                    <div
+                      className="text-[11px] sm:text-[13px] md:text-[14px] lg:text-[16px]"
+                      style={{
+                        color: isActive ? "#FFFFFF" : "#E2E8F0",
+                        fontFamily: "Public Sans",
+                        fontWeight: isActive ? "700" : "400",
+                      }}
+                    >
+                      {tab.label}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
             {/* image slider */}
             <motion.div
               className="dashboard-preview"
+              style={{ transform: "translateY(-40px)" }}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -597,7 +654,8 @@ const Features = () => {
               alt="Dashboard preview"
               className="dashboard-img"
             /> */}
-              <div class="card"
+              <div
+                class="card"
                 onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
                 onMouseLeave={() => swiperRef.current?.autoplay?.start()}
               >
@@ -680,8 +738,8 @@ const Features = () => {
                 <div class="card__content">
                   <div
                     className="slider-container"
-                  // onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
-                  // onMouseLeave={() => swiperRef.current?.autoplay?.start()}
+                    // onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
+                    // onMouseLeave={() => swiperRef.current?.autoplay?.start()}
                   >
                     {/* <Swiper
                       onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -749,10 +807,18 @@ const Features = () => {
                     >
                       {tabs.map((tab, index) => (
                         <SwiperSlide
-                          onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
-                          onMouseLeave={() => swiperRef.current?.autoplay?.start()}
+                          onMouseEnter={() =>
+                            swiperRef.current?.autoplay?.stop()
+                          }
+                          onMouseLeave={() =>
+                            swiperRef.current?.autoplay?.start()
+                          }
                         >
-                          <img src={tab.img} alt={tab.label} className="img-slide" />
+                          <img
+                            src={tab.img}
+                            alt={tab.label}
+                            className="img-slide"
+                          />
                         </SwiperSlide>
                       ))}
                     </Swiper>
@@ -761,7 +827,7 @@ const Features = () => {
 
                 {/* know more button */}
                 <Link
-                  to={tabs[activeTab].link || '/'}
+                  to={tabs[activeTab].link || "/"}
                   className="author"
                   onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
                   onMouseLeave={() => swiperRef.current?.autoplay?.start()}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // 
+import { useParams } from "react-router-dom"; //
 import "./profile.css";
 import axios from "axios";
 import { Container } from "react-bootstrap";
@@ -12,10 +12,9 @@ const Profile = () => {
     bio: "",
     profile: "",
   });
-  
 
   const [file, setFile] = useState(null);
- 
+
   const token = localStorage.getItem("token");
 
   const email = localStorage.getItem("email") || "";
@@ -23,7 +22,6 @@ const Profile = () => {
   const { userId: paramUserId } = useParams();
   const userId = paramUserId || localStorage.getItem("userId");
   const id = localStorage.getItem("userId");
- 
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -34,7 +32,7 @@ const Profile = () => {
             headers: {
               Authorization: `Bearer ${token}`, // Include the token in the Authorization header
             },
-          }
+          },
         );
         setFormData({
           name: response.data.user.username || "",
@@ -48,7 +46,7 @@ const Profile = () => {
       }
     };
     fetchUserData();
-  }, [userId, token]); 
+  }, [userId, token]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -59,14 +57,14 @@ const Profile = () => {
         const maxSize = 2 * 1024 * 1024;
 
         if (!validTypes.includes(file.type)) {
-           alert("Only JPG and PNG files are allowed.");
-           return
+          alert("Only JPG and PNG files are allowed.");
+          return;
         }
         if (file.size > maxSize) {
           alert("File size must be under 2MB.");
           return;
         }
-        setFile(file);  
+        setFile(file);
       }
     } else {
       setFormData({ ...formData, [name]: value });
@@ -92,7 +90,7 @@ const Profile = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
       alert("Profile updated successfully!");
       console.log("Update response:", response.data);
@@ -127,10 +125,12 @@ const Profile = () => {
   return (
     <div
       className="profile-page"
-      style={{  flexGrow: 1, 
-    
-    padding: "12px",
-    fontSize: "15px", }}
+      style={{
+        flexGrow: 1,
+
+        padding: "12px",
+        fontSize: "15px",
+      }}
     >
       <div
         className="profilepageview"
@@ -165,20 +165,22 @@ const Profile = () => {
           <div className="pimage-container">
             {(file || formData.profile) && (
               <img
-                src={
-                  file
-                    ? URL.createObjectURL(file)
-                    : formData.profile
-                    ? `${BASE_URL}/upload/${formData.profile}`
-                    : "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-male-user-profile-vector-illustration-isolated-background-man-profile-sign-business-concept_157943-38764.jpg"
-                }
-                alt=""
-                style={{
-                  width: "60%",
-                  borderRadius: "10px",
-                  marginTop: "10px",
-                }}
-              />
+  src={
+    file
+      ? URL.createObjectURL(file)
+      : formData.profile
+        ? `${BASE_URL}/upload/${formData.profile}`
+        : "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-male-user-profile-vector-illustration-isolated-background-man-profile-sign-business-concept_157943-38764.jpg"
+  }
+  alt=""
+  onClick={(e) => e.stopPropagation()}   // ✅ IMPORTANT FIX
+  style={{
+    width: "60%",
+    borderRadius: "10px",
+    marginTop: "10px",
+    cursor: "default",
+  }}
+/>
             )}
           </div>
         </div>
@@ -228,7 +230,7 @@ const Profile = () => {
               style={{ ...inputStyle, resize: "none" }}
             />
 
-            <label htmlFor="profile">Profile Picture:</label>
+            <label>Profile Picture:</label>
             <p style={{ margin: "4px 0", fontSize: "0.9em", color: "#555" }}>
               Allowed: JPG or PNG, Max size: 2MB
             </p>
@@ -238,11 +240,13 @@ const Profile = () => {
               name="profile"
               accept="image/png, image/jpeg"
               onChange={handleChange}
-              style={{  margin: "8px 0",
-    paddingLeft: "4px",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    boxSizing: "border-box" }}
+              style={{
+                margin: "8px 0",
+                paddingLeft: "4px",
+                borderRadius: "6px",
+                border: "1px solid #ccc",
+                boxSizing: "border-box",
+              }}
             />
 
             <button type="submit" style={buttonStyle}>

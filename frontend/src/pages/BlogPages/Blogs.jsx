@@ -8,16 +8,18 @@ import BlogCard from "../../components/Blogs/AdminBoard/BlogCard";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");       // ✅ search state
+  const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);      // ✅ pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const blogsPerPage = 8;
 
-  const { deletedBlogId, deleteBlog } = useBlogDelete();
+  const { deletedBlogId } = useBlogDelete();
 
   // Fetch blogs
   const getAllBlogs = async () => {
     try {
+      setLoading(true);
       const { data } = await axios.get(`${BASE_URL}/api/v1/blog/all-blog`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -28,6 +30,8 @@ const Blogs = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -54,8 +58,8 @@ const Blogs = () => {
   // Filter blogs by search
   const filteredBlogs = blogs.filter(
     (blog) =>
-      blog.title.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
-      blog.description.toLowerCase().includes(debouncedSearch.toLowerCase())
+      blog.title?.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+      blog.description?.toLowerCase().includes(debouncedSearch.toLowerCase())
   );
 
   // Pagination logic
@@ -70,25 +74,23 @@ const Blogs = () => {
     }
   };
 
-  // Delete Blog
-  const handleDelete = async (id) => {
-    try {
-      const { data } = await axios.delete(
-        `${BASE_URL}/api/v1/blog/delete-blog/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
-      if (data?.success) {
-        deleteBlog(id);
-        setBlogs((prev) => prev.filter((blog) => blog._id !== id));
-      }
-    } catch (error) {
-      console.log("Error deleting blog:", error);
-    }
-  };
+  if (loading) {
+    return (
+      <section className="bg-[#FFFFFF] py-24 px-6 md:px-20 mt-15">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <div key={i} className="bg-white rounded-2xl shadow-md overflow-hidden p-4">
+              <div className="h-48 bg-gray-200 rounded-2xl animate-pulse"></div>
+              <div className="py-2">
+                <div className="h-4 bg-gray-200 rounded w-3/4 mb-2 animate-pulse"></div>
+                <div className="h-3 bg-gray-200 rounded w-full animate-pulse"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-[#FFFFFF] py-24 px-6 md:px-20 mt-15">
@@ -116,14 +118,14 @@ const Blogs = () => {
         </div>
       </div>
 
-      {/* Blog Cards */}
+      {/* Blog Cards - NO EDIT/DELETE BUTTONS */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {currentBlogs.length > 0 ? (
           currentBlogs.map((blog) => (
             <BlogCard
               key={blog._id}
               id={blog._id}
-              isUser={localStorage.getItem("userId") === blog?.user?._id}
+              isUser={false}
               title={blog.title}
               description={blog.description}
               image={blog.image}
@@ -131,7 +133,6 @@ const Blogs = () => {
               slug={blog.slug || blog._id}
               username={blog?.user?.username}
               time={moment(blog.createdAt).format("ll")}
-              handleDelete={() => handleDelete(blog._id || blog.slug)}
               previewOnly={true}
               icon={<IoMdPerson />}
             />

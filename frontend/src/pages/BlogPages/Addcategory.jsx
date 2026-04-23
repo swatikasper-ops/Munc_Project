@@ -6,12 +6,19 @@ import BASE_URL from "../Config/config";
 import "./addcategory.css"
 import { Helmet } from "react-helmet-async";
 
-const id = localStorage.getItem("userId");
-
 const Addcategory = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState({ title: "" });
   const [categories, setCategories] = useState([]);
+  const id = localStorage.getItem("userId");
+
+  // Add this useEffect to detect when navigation happens
+  useEffect(() => {
+    console.log("Component mounted on path:", window.location.pathname);
+    return () => {
+      console.log("Component unmounting - navigation happening!");
+    };
+  }, []);
 
   useEffect(() => {
     fetchCategories();
@@ -38,21 +45,18 @@ const Addcategory = () => {
   };
 
   const handleChange = (e) => {
-    // const value = e.target.value;
-    // const regex = /^[A-Za-z\s]{0,50}$/;
-
-    // if (regex.test(value)) {
-    //   setInput(value); 
-    // }
     setInput({ title: e.target.value });
   };
 
   const handleCategory = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
+    
+    console.log("handleCategory called - current path:", window.location.pathname);
+    
     const token = localStorage.getItem("token");
     if (!token) {
       toast.error("No authentication token found. Please log in.");
-      navigate("/login");
       return;
     }
     if (!input.title.trim()) {
@@ -72,22 +76,23 @@ const Addcategory = () => {
       );
       if (data.success) {
         toast.success("Category added successfully");
-          setInput({ title: "" });
-        navigate("/adminsidebar/addblog");
+        setInput({ title: "" });
+        await fetchCategories();
+        console.log("Category added successfully - should stay on page");
+        // Explicitly log that we're NOT navigating
+        console.log("Current URL after success:", window.location.pathname);
       } else {
         toast.error("Failed to add category");
       }
     } catch (error) {
       console.log("Error Response:", error.response);
-
-  if (error.response?.status === 409) {
-    toast.error("Category already exists");
-  } else {
-    toast.error("Error adding category");
-    console.error("Add Category Error:", error);
-  }
-}
-
+      if (error.response?.status === 409) {
+        toast.error("Category already exists");
+      } else {
+        toast.error("Error adding category");
+        console.error("Add Category Error:", error);
+      }
+    }
   };
 
   if (!id) {
@@ -100,17 +105,13 @@ const Addcategory = () => {
 
   return (
     <>
-    <Helmet
-    
-    
-    >
-        <title>Know More About Us| Kasper Infotech</title>
+      <Helmet>
+        <title>Add Category | Kasper Infotech</title>
         <meta
-          name="discription"
+          name="description"
           content="Learn about us our expert team and comprehensive services in digital marketing and web development."
         />
         <meta name="keywords" content="About us" />
-
         <link rel="canonical" href="https://kasperinfotech.com/About-us" />
         <meta
           property="og:title"
@@ -128,111 +129,113 @@ const Addcategory = () => {
           content="https://kasperinfotech.com/static/media/CRMMigration.c30b479028a90c971cf38a10328ecf98.svg"
         />
       </Helmet>
-    <div
-      style={{
-        maxWidth: "600px",
-        margin: "40px auto",
-        padding: "20px",
-        backgroundColor: "#f4f4f4",
-        borderRadius: "8px",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-      }}
-    >
-      <h2
-        style={{
-          backgroundColor: "#659ee8",
-          padding: "12px",
-          color: "white",
-          borderRadius: "4px",
-          textAlign: "center",
-          marginBottom: "20px",
-        }}
-      >
-        Add a New Category
-      </h2>
-
-      <form onSubmit={handleCategory}>
-        <label
-          htmlFor="categoryTitle" className="cat-title"  
-        >
-          Category Title
-        </label>
-        <input
-          id="categoryTitle"
-          type="text"
-          name="title"
-          value={input.title}
-          onChange={handleChange}
-          placeholder="Enter category title"
-          required
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "20px",
-            borderRadius: "6px",
-            border: "1px solid #ccc",
-            fontSize: "16px",
-          }}
-        />
-        <div style={{ textAlign: "center" }}>
-          <button
-            type="submit"
-            style={{
-              backgroundColor: "#659ee8",
-              color: "white",
-              border: "none",
-              padding: "10px 20px",
-              fontSize: "16px",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
-          >
-            Add Category
-          </button>
-        </div>
-      </form>
-
       <div
         style={{
-          marginTop: "40px",
-          backgroundColor: "#f1f1f1",
-          padding: "15px",
+          maxWidth: "600px",
+          margin: "40px auto",
+          padding: "20px",
+          backgroundColor: "#f4f4f4",
           borderRadius: "8px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
         }}
       >
-        <h3 style={{ marginBottom: "15px" }}>Available Categories</h3>
-        {categories.length === 0 ? (
-          <p style={{ color: "#555" }}>No categories found.</p>
-        ) : (
-          <div
+        <h2
+          style={{
+            backgroundColor: "#659ee8",
+            padding: "12px",
+            color: "white",
+            borderRadius: "4px",
+            textAlign: "center",
+            marginBottom: "20px",
+          }}
+        >
+          Add a New Category
+        </h2>
+
+        <form onSubmit={handleCategory}>
+          <label htmlFor="categoryTitle" className="cat-title">
+            Category Title
+          </label>
+          <input
+            id="categoryTitle"
+            type="text"
+            name="title"
+            value={input.title}
+            onChange={handleChange}
+            placeholder="Enter category title"
+            required
             style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "10px",
+              width: "100%",
+              padding: "10px",
+              marginBottom: "20px",
+              borderRadius: "6px",
+              border: "1px solid #ccc",
+              fontSize: "16px",
             }}
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat._id}
-                onClick={() => setInput({ title: cat.title })}
-                style={{
-                  padding: "8px 12px",
-                  borderRadius: "6px",
-                  border: "1px solid #ccc",
-                  backgroundColor: "white",
-                  cursor: "pointer",
-                  flex: "0 1 calc(33% - 10px)",
-                  textAlign: "center",
-                }}
-              >
-                {cat.title}
-              </button>
-            ))}
+          />
+          <div style={{ textAlign: "center" }}>
+            <button
+              type="submit"
+              style={{
+                backgroundColor: "#659ee8",
+                color: "white",
+                border: "none",
+                padding: "10px 20px",
+                fontSize: "16px",
+                borderRadius: "6px",
+                cursor: "pointer",
+              }}
+            >
+              Add Category
+            </button>
           </div>
-        )}
+        </form>
+
+        <div
+          style={{
+            marginTop: "40px",
+            backgroundColor: "#f1f1f1",
+            padding: "15px",
+            borderRadius: "8px",
+          }}
+        >
+          <h3 style={{ marginBottom: "15px" }}>Available Categories</h3>
+          {categories.length === 0 ? (
+            <p style={{ color: "#555" }}>No categories found.</p>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "10px",
+              }}
+            >
+              {categories.map((cat) => (
+                <button
+                  key={cat._id}
+                  type="button"
+                  onClick={() => {
+                    console.log("Category button clicked:", cat.title);
+                    setInput({ title: cat.title });
+                  }}
+                  style={{
+                    padding: "8px 12px",
+                    borderRadius: "6px",
+                    border: "1px solid #ccc",
+                    backgroundColor: "white",
+                    cursor: "pointer",
+                    flex: "0 1 calc(33% - 10px)",
+                    textAlign: "center",
+                  }}
+                >
+                  {cat.title}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  </>
+    </>
   );
 };
 

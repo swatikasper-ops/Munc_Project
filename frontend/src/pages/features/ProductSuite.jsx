@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HRM from "../../assets/HrmsImg/HRMS_NEW.png";
+import HRM from "../../assets/HrmsImg/new_img.png";
 import LMS from "../../assets/LmsImg/LMS22.png";
 import Hotel from "../../assets/products/HMS.png";
 import IMS from "../../assets/products/IMS.png";
@@ -19,7 +19,7 @@ const products = [
         title: "HR Management System",
         desc: "Manage your workforce from one unified platform, Automate attendance, payroll, and HR operations with ease.",
         img: HRM,
-         products:"/products/human-resource-management-system"
+                 path:"/products/human-resource-management-system"
     },
     {
         title: "Lead Management System",

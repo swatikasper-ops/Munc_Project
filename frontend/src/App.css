@@ -8,6 +8,10 @@
   font-family: "Noto Sans", sans-serif;
   /* font-style: normal; */
 }
+.html {
+  scroll-behavior: smooth;
+}
+
 
 /* Force the browser to stay within the screen width */
 html, body {

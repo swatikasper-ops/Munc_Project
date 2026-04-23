@@ -96,38 +96,68 @@ import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 const FAQ = () => {
-  const faqs = [
-    {
-      id: 1,
-      question: "Q1. What is School Management Software?",
-      answer:
-        "It’s a digital platform that automates school operations — from admissions, attendance, and exams to fee collection and communication.",
-    },
-    {
-      id: 2,
-      question: "Q2. Who can use this software?",
-      answer:
-        "Administrators, teachers, parents, and even students can use it through their respective login portals.",
-    },
-    {
-      id: 3,
-      question: "Q3. Does it support online fee payments?",
-      answer:
-        "Yes, MUN-C supports secure online fee collection with instant receipts and payment tracking.",
-    },
-    {
-      id: 4,
-      question: "Q4. Can parents and teachers access it?",
-      answer:
-        "Absolutely. The system includes dedicated portals for teachers and parents to ensure seamless updates and communication.",
-    },
-    {
-      id: 5,
-      question: "Q5. Is student data secure?",
-      answer:
-        "Yes, All data is encrypted, stored safely on the cloud, and accessible only through role-based permissions.",
-    },
-  ];
+ const faqs = [
+  {
+    id: 1,
+    question: "Q1. What is School Management Software in MUN-C?",
+    answer:
+      "MUN-C School Management Software is an all-in-one platform to manage academic and administrative tasks. It handles admissions, attendance, fees, and exams efficiently. This helps schools reduce manual work, improve communication, and streamline daily operations from a single dashboard.",
+  },
+  {
+    id: 2,
+    question: "Q2. How does MUN-C help in managing student records?",
+    answer:
+      "MUN-C allows schools to store and manage complete student records digitally. It includes personal details, academic history, attendance, and documents. This ensures easy access, better organization, and reduces paperwork, making student data management more efficient and secure.",
+  },
+  {
+    id: 3,
+    question: "Q3. Can I manage attendance for students and staff?",
+    answer:
+      "Yes, MUN-C provides a complete attendance management system for both students and staff. Attendance can be recorded daily and tracked in real time. This helps maintain accurate records, monitor absentees, and generate reports easily for better decision-making.",
+  },
+  {
+    id: 4,
+    question: "Q4. Does the system support fee management?",
+    answer:
+      "MUN-C includes a fee management module to handle fee collection, receipts, and due tracking. It allows schools to manage different fee structures and send reminders. This ensures timely payments, reduces manual errors, and simplifies financial management.",
+  },
+  {
+    id: 5,
+    question: "Q5. Can I manage exams and results?",
+    answer:
+      "Yes, MUN-C supports exam scheduling, result creation, and report generation. Schools can manage marks, grades, and performance reports easily. This helps in maintaining accurate academic records and provides clear insights into student performance.",
+  },
+  {
+    id: 6,
+    question: "Q6. Does MUN-C support communication with parents?",
+    answer:
+      "MUN-C enables schools to communicate with parents through notifications and updates. Schools can share attendance, results, and important announcements. This improves transparency and keeps parents informed about their child’s progress and activities.",
+  },
+  {
+    id: 7,
+    question: "Q7. Can I manage transport and hostel facilities?",
+    answer:
+      "Yes, MUN-C includes modules to manage transport and hostel operations. You can track routes, vehicle details, and student allocations. This ensures better management, improves safety, and provides clear visibility of logistics within the school.",
+  },
+  {
+    id: 8,
+    question: "Q8. Does the software provide reports and analytics?",
+    answer:
+      "MUN-C offers detailed reports on attendance, fees, exams, and overall school performance. These insights help administrators make informed decisions, track progress, and improve operational efficiency across different departments.",
+  },
+  {
+    id: 9,
+    question: "Q9. Is MUN-C suitable for all types of schools?",
+    answer:
+      "Yes, MUN-C is designed for schools of all sizes, from small institutions to large campuses. It scales according to your needs and supports multiple users, making it suitable for managing complex school operations efficiently.",
+  },
+  {
+    id: 10,
+    question: "Q10. How can I get started with MUN-C School Management Software?",
+    answer:
+      "You can get started by signing up for the free trial on the website. After setup, you can configure school details and start managing operations. You can also request a demo for guided onboarding and a better understanding of features.",
+  },
+];
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
@@ -185,9 +215,9 @@ const FAQ = () => {
                 {faq.answer}
               </p>
 
-              <span className="text-[#007AFF] text-sm mt-1 inline-block hover:underline">
+              {/* <span className="text-[#007AFF] text-sm mt-1 inline-block hover:underline">
                 Know More
-              </span>
+              </span> */}
             </div>
 
           </div>

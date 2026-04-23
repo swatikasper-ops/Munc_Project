@@ -4,36 +4,36 @@ import WhyImg from "../../assets/smschoose.png";
 
 const features = [
   {
-    title: "Multi-Channel Lead Capture",
-    desc: "Collect leads from website, ads, calls, and social media in one system.",
+    title: "Multi-Channel Booking & Reservation Management",
+    desc: "Capture hotel bookings from website, OTAs, walk-ins, and travel platforms in one centralized hotel reservation system.",
   },
   {
-    title: "Automated Lead Assignment",
-    desc: "Assign leads to the right team instantly with smart rules and notifications.",
+    title: " Guest Allocation & Room Assignment",
+    desc: "Smart room assignment engine s allocates guests based on availability, preferences, and hotel management rules.",
   },
   {
-    title: "Centralized Lead Dashboard",
-    desc: "Manage and track all leads from a single, easy-to-use dashboard.",
+    title: "Centralized Hotel Operations Dashboard",
+    desc: "Manage reservations, check-ins, check-outs, and housekeeping from a powerful hotel PMS dashboard.",
   },
   {
-    title: "Sales Pipeline Management",
-    desc: "Visualize lead stages and move deals smoothly from inquiry to conversion.",
+    title: "Advanced Room & Inventory Management",
+    desc: "Track room availability, occupancy status, pricing, and seasonal inventory in real-time hotel management software.",
   },
   {
-    title: "Real-Time Conversion Insights",
-    desc: "Analyze performance with live reports and conversion tracking.",
+    title: "Real-Time Revenue & Occupancy Analytics",
+    desc: "Monitor hotel performance with live reports on occupancy rate, revenue per room, and booking conversion insights.",
   },
   {
-    title: "Follow-Up & Reminder System",
-    desc: "Never miss a follow-up with automated alerts and scheduling.",
+    title: "Automated Guest Follow-Ups & Notifications",
+    desc: "Send automated booking confirmations, check-in reminders, and post-stay feedback requests to improve guest experience.",
   },
   {
-    title: "Team Collaboration & Tracking",
-    desc: "Monitor team activities, performance, and lead handling efficiency.",
+    title: "Staff & Housekeeping Management System",
+    desc: "Track staff tasks, housekeeping status, and operational efficiency with real-time hotel workflow monitoring.",
   },
-   {
-    title: "Seamless BMS Integration",
-    desc: "Fully integrated with MUN-C Business Management Suite for unified operations.",
+  {
+    title: "Seamless Hotel ERP Integration",
+    desc: "Fully integrated with Hotel ERP systems for accounting, billing, CRM, and end-to-end hospitality operations management.",
   },
 ];
 

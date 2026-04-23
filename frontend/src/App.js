@@ -30,6 +30,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Contact from "./components/Contact";
 import FirstVisitPopup from "./components/popup/FirstVisitPopup"
 import HmsProduct from "./components/HMS/HmsProduct";
+// import EditBlog from "./pages/BlogPages/EditBlog";
 
 const App = () => {
   useEffect(() => {
@@ -43,9 +44,9 @@ const App = () => {
 
   return (
     <>
-     
       <ScrollToTop />
       <Routes>
+        {/* Public Routes with Layout */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Features />} />
           <Route path="/about" element={<About />} />
@@ -75,21 +76,26 @@ const App = () => {
           />
         </Route>
           
-       
-
-        {/* Blog Auth/Login */}
+        {/* Public Routes without Layout */}
         <Route path="/register" element={<Register />} />
-        <Route path="login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* Admin Edit Route - Standalone */}
+        {/* <Route path="/adminsidebar/edit-blog/:id" element={<EditBlog />} /> */}
 
         {/* Admin Routes with Nested Children */}
-        <Route path="adminsidebar" element={<AdminLayouts />}>
+        <Route path="/adminsidebar" element={<AdminLayouts />}>
           <Route path="profile" element={<Profile />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="my-blogs" element={<UserBlogs />} />
           <Route path="addcategory" element={<Addcategory />} />
           <Route path="addblog" element={<AddBlog />} />
+          <Route path="/adminsidebar/edit-blog/:id" element={<AddBlog />} />
           <Route path="product-demo-list" element={<ProductDemoList />} />
           <Route path="contact-list" element={<ContactList />} />
+          {/* REMOVE THIS LINE - It's causing the error */}
+          {/* <Route path="/blogpost/:slugOrId" element={<SingleBlog />} /> */}
+          <Route path="preview-blog/:slugOrId" element={<SingleBlog />} />
         </Route>
       </Routes>
     </>

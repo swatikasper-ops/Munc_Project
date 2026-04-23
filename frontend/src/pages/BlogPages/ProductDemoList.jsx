@@ -113,7 +113,7 @@ const ProductDemoList = () => {
     <div className="relative max-w-7xl mx-auto p-6 rounded-lg bg-white">
       <div className="mb-8">
         <h2 className="text-2xl font-light text-gray-800 mb-2">
-          Product Demos
+          Product Demo
         </h2>
         <p className="text-gray-500">Manage demo requests</p>
       </div>
