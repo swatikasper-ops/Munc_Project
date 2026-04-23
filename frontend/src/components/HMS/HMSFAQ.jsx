@@ -97,37 +97,67 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const HMSFAQ = () => {
   const faqs = [
-    {
-      id: 1,
-      question: "Q1. What is School Management Software?",
-      answer:
-        "It’s a digital platform that automates school operations — from admissions, attendance, and exams to fee collection and communication.",
-    },
-    {
-      id: 2,
-      question: "Q2. Who can use this software?",
-      answer:
-        "Administrators, teachers, parents, and even students can use it through their respective login portals.",
-    },
-    {
-      id: 3,
-      question: "Q3. Does it support online fee payments?",
-      answer:
-        "Yes, MUN-C supports secure online fee collection with instant receipts and payment tracking.",
-    },
-    {
-      id: 4,
-      question: "Q4. Can parents and teachers access it?",
-      answer:
-        "Absolutely. The system includes dedicated portals for teachers and parents to ensure seamless updates and communication.",
-    },
-    {
-      id: 5,
-      question: "Q5. Is student data secure?",
-      answer:
-        "Yes, All data is encrypted, stored safely on the cloud, and accessible only through role-based permissions.",
-    },
-  ];
+  {
+    id: 1,
+    question: "Q1. What is Hotel Management Software in MUN-C?",
+    answer:
+      "MUN-C Hotel Management Software is an all-in-one solution to manage hotel operations efficiently. It handles bookings, check-ins, billing, and housekeeping. This helps hotels reduce manual work, improve guest experience, and manage daily operations smoothly from a single dashboard.",
+  },
+  {
+    id: 2,
+    question: "Q2. How does MUN-C manage room bookings?",
+    answer:
+      "MUN-C allows you to manage room bookings in real time with availability tracking. You can view occupied, vacant, and reserved rooms easily. This ensures efficient room allocation, avoids overbooking, and helps staff manage reservations without confusion or delays.",
+  },
+  {
+    id: 3,
+    question: "Q3. Can I manage check-in and check-out processes?",
+    answer:
+      "Yes, MUN-C simplifies check-in and check-out with a streamlined interface. Staff can quickly assign rooms, update guest details, and complete formalities. This reduces waiting time, improves guest experience, and ensures smooth front desk operations.",
+  },
+  {
+    id: 4,
+    question: "Q4. Does the system support billing and invoicing?",
+    answer:
+      "MUN-C provides a complete billing system for room charges, services, and additional expenses. Invoices are generated automatically with accurate calculations. This reduces errors, speeds up transactions, and ensures transparent billing for guests.",
+  },
+  {
+    id: 5,
+    question: "Q5. Can I manage housekeeping tasks?",
+    answer:
+      "Yes, MUN-C includes housekeeping management to track room cleaning status. Staff can update room readiness, and managers can monitor tasks easily. This ensures rooms are prepared on time and improves overall operational efficiency.",
+  },
+  {
+    id: 6,
+    question: "Q6. Does MUN-C support multiple room types and pricing?",
+    answer:
+      "MUN-C allows you to define different room types and pricing structures. You can set rates based on seasons, occupancy, or special offers. This helps maximize revenue and manage pricing strategies effectively.",
+  },
+  {
+    id: 7,
+    question: "Q7. Can I track guest history and details?",
+    answer:
+      "Yes, MUN-C stores complete guest information including stay history, preferences, and contact details. This helps in providing personalized services, improving guest satisfaction, and building long-term customer relationships.",
+  },
+  {
+    id: 8,
+    question: "Q8. Does the software provide reports and analytics?",
+    answer:
+      "MUN-C offers detailed reports on occupancy, revenue, bookings, and performance. These insights help hotel owners make informed decisions, optimize operations, and improve overall profitability.",
+  },
+  {
+    id: 9,
+    question: "Q9. Is MUN-C suitable for small and large hotels?",
+    answer:
+      "Yes, MUN-C is designed for hotels of all sizes, from small guest houses to large properties. It scales according to your needs and supports multiple users, making it ideal for managing complex hotel operations efficiently.",
+  },
+  {
+    id: 10,
+    question: "Q10. How can I get started with MUN-C Hotel Management Software?",
+    answer:
+      "You can get started by signing up for the free trial on the website. After setup, you can configure rooms, pricing, and operations. You can also request a demo for guided onboarding and a better understanding of the system.",
+  },
+];
 
  
   return (
@@ -186,9 +216,9 @@ const HMSFAQ = () => {
                 {f.answer}
               </p>
 
-              <span className="text-[#007AFF] text-sm mt-1 inline-block hover:underline">
+              {/* <span className="text-[#007AFF] text-sm mt-1 inline-block hover:underline">
                 Know More
-              </span>
+              </span> */}
             </div>
 
           </div>

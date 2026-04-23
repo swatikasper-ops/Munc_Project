@@ -35,80 +35,105 @@ const KeyFeature = () => {
               </p>
             </div>
           </div>
+             {/* Right Content - Stats Cards */}
+<div className="w-full lg:w-[55%] bg-[#FAFBFB] p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl">
+  
+  <div className="flex flex-col md:flex-row gap-3 sm:gap-4">
 
-          {/* Right Content - Stats Cards */}
-          <div className="w-full lg:w-[55%] bg-[#FAFBFB] p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl">
-            <div className="flex flex-col sm:flex-row justify-start items-center gap-3 sm:gap-4">
-              {/* Lead Sources Card */}
-              <div className="w-full sm:flex-1 bg-white rounded-lg border border-[#EFF1F3] p-2.5 sm:p-3">
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 bg-[#F4F7FE] rounded flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 bg-[#9AB6F5] rounded-full" />
-                    </div>
-                    <span className="text-[#363636] text-xs sm:text-sm font-semibold tracking-wide">Lead Sources</span>
-                  </div>
-                  <div className="flex flex-wrap justify-between items-center gap-2 sm:gap-3">
-                    <div className="flex flex-col gap-1.5">
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#F4F7FE] border border-[#9AB6F5] rounded" />
-                        <span className="text-[#363636] text-[10px] sm:text-xs font-normal">Website Form</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#F4F7FE] border border-[#9AB6F5] rounded" />
-                        <span className="text-[#363636] text-[10px] sm:text-xs font-normal">Social Media</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#F4F7FE] border border-[#9AB6F5] rounded" />
-                        <span className="text-[#363636] text-[10px] sm:text-xs font-normal">Email Campaign</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-1.5 sm:gap-2">
-                      <div className="w-20 sm:w-24 md:w-28 h-1 sm:h-1.5 bg-[#D8E2FA] rounded-full overflow-hidden">
-                        <div className="w-[70%] h-full bg-[#9AB6F5] rounded-full" />
-                      </div>
-                      <div className="w-20 sm:w-24 md:w-28 h-1 sm:h-1.5 bg-[#D8E2FA] rounded-full overflow-hidden">
-                        <div className="w-full h-full bg-[#9AB6F5] rounded-full" />
-                      </div>
-                      <div className="w-20 sm:w-24 md:w-28 h-1 sm:h-1.5 bg-[#D8E2FA] rounded-full overflow-hidden">
-                        <div className="w-[75%] h-full bg-[#9AB6F5] rounded-full" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    {/* Lead Sources Card - MORE WIDTH */}
+    <div className="w-full md:w-[60%] bg-white rounded-lg border border-[#EFF1F3] p-2.5 sm:p-3">
+      <div className="flex flex-col gap-2">
+        
+        <div className="flex items-center gap-1.5">
+          <div className="w-3 h-3 bg-[#F4F7FE] rounded flex items-center justify-center">
+            <div className="w-1.5 h-1.5 bg-[#9AB6F5] rounded-full" />
+          </div>
+          <span className="text-[#363636] text-xs sm:text-sm font-semibold tracking-wide">
+            Lead Sources
+          </span>
+        </div>
 
-              {/* Leads List */}
-              <div className="flex flex-row sm:flex-col gap-2 sm:gap-1.5 w-full sm:w-auto">
-                <div className="flex-1 sm:w-auto bg-white rounded-lg border border-[#EFF1F3] p-2">
-                  <div className="flex items-center gap-2 sm:gap-2.5">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-[#DEE8FC] rounded-full flex items-center justify-center">
-                      <span className="text-[#2463EB] text-[10px] sm:text-xs md:text-sm font-medium">RS</span>
-                    </div>
-                    <div>
-                      <div className="text-[#363636] text-xs sm:text-sm md:text-base font-medium">Rahul S.</div>
-                      <div className="px-1.5 py-0.5 bg-[#DEE8FC] rounded-full inline-block mt-0.5">
-                        <span className="text-[#2463EB] text-[9px] sm:text-[10px] font-medium">New Lead</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-1 sm:w-auto bg-white rounded-lg border border-[#EFF1F3] p-2">
-                  <div className="flex items-center gap-2 sm:gap-2.5">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-[#FDECCE] rounded-full flex items-center justify-center">
-                      <span className="text-[#F5A212] text-[10px] sm:text-xs md:text-sm font-medium">PA</span>
-                    </div>
-                    <div>
-                      <div className="text-[#363636] text-xs sm:text-sm md:text-base font-medium">Priya A.</div>
-                      <div className="px-1.5 py-0.5 bg-[#D1FAE5] rounded-full inline-block mt-0.5">
-                        <span className="text-[#10805F] text-[9px] sm:text-[10px] font-medium">Qualified</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div className="flex flex-col sm:flex-row justify-between gap-3">
+
+          {/* Left labels */}
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 bg-[#F4F7FE] border border-[#9AB6F5] rounded" />
+              <span className="text-[#363636] text-[10px] sm:text-xs">Website Form</span>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 bg-[#F4F7FE] border border-[#9AB6F5] rounded" />
+              <span className="text-[#363636] text-[10px] sm:text-xs">Social Media</span>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 bg-[#F4F7FE] border border-[#9AB6F5] rounded" />
+              <span className="text-[#363636] text-[10px] sm:text-xs">Email Campaign</span>
             </div>
           </div>
+
+          {/* Right bars */}
+          <div className="flex flex-col gap-2">
+            <div className="w-24 sm:w-28 h-1.5 bg-[#D8E2FA] rounded-full overflow-hidden">
+              <div className="w-[70%] h-full bg-[#9AB6F5]" />
+            </div>
+
+            <div className="w-24 sm:w-28 h-1.5 bg-[#D8E2FA] rounded-full overflow-hidden">
+              <div className="w-full h-full bg-[#9AB6F5]" />
+            </div>
+
+            <div className="w-24 sm:w-28 h-1.5 bg-[#D8E2FA] rounded-full overflow-hidden">
+              <div className="w-[75%] h-full bg-[#9AB6F5]" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    {/* Leads Column (Rahul + Sneha STACKED) */}
+    <div className="w-full md:w-[40%] flex flex-col gap-3">
+
+      {/* Rahul Card */}
+      <div className="bg-white rounded-xl border border-[#EFF1F3] p-2.5 shadow-sm">
+        <div className="flex items-start gap-2.5">
+          <div className="w-10 h-10 bg-[#E0E7FF] rounded-full flex items-center justify-center">
+            <span className="text-[#4F46E5] text-sm font-semibold">RS</span>
+          </div>
+
+          <div>
+            <div className="text-[#1E293B] text-sm font-semibold">Rahul S.</div>
+            <div className="mt-1 px-2 py-0.5 bg-[#E0E7FF] rounded-full inline-block">
+              <span className="text-[#4F46E5] text-[10px] font-medium">
+                New Lead
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Sneha Card */}
+      <div className="bg-white rounded-xl border border-[#EFF1F3] p-2.5 shadow-sm">
+        <div className="flex items-start gap-2.5">
+          <div className="w-10 h-10 bg-[#FEF3C7] rounded-full flex items-center justify-center">
+            <span className="text-[#F59E0B] text-sm font-semibold">SN</span>
+          </div>
+
+          <div>
+            <div className="text-[#1E293B] text-sm font-semibold">Sneha N.</div>
+            <div className="mt-1 px-2 py-0.5 bg-[#D1FAE5] rounded-full inline-block">
+              <span className="text-[#059669] text-[10px] font-medium">
+                Qualified
+              </span>
+
+      </div>
+    </div>
+  </div>
+</div>
+            </div>
+          </div>
+           </div>
         </div>
 
         {/* Row 2 - Three column features */}

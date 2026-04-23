@@ -40,6 +40,27 @@ const ContactList = () => {
     fetchContacts();
   }, []);
 
+useEffect(() => {
+  const isModalOpen = selectedContact || editContact;
+
+  if (isModalOpen) {
+    // lock scroll
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+  } else {
+    // restore scroll
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.width = "";
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.width = "";
+  };
+}, [selectedContact, editContact]);
   // ✅ Delete contact
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this contact?")) return;

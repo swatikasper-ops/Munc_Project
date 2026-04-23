@@ -4,9 +4,9 @@ import { ArrowDown } from "lucide-react";
 import SmsHomeImg from "../../assets/SmsImg/BigImg/StudentsImg.png";
 import "./HMS.css";
 import sms_hero_img from "../../../src/assets/sms-hero.png";
-import at from "../../../src/assets/at.png";
-import tm from "../../../src/assets/tm.png";
-import cm from "../../../src/assets/cm.png";
+import at from "../../../src/assets/attt.png";
+import tm from "../../../src/assets/tmm.png";
+import cm from "../../../src/assets/cmm.png";
 import sms_gif from "../../../src/assets/sms-gif.gif";
 import { X, ChevronDown } from "lucide-react";
 import ContactImg from "../../../src/assets/gettouch.png";
@@ -21,7 +21,7 @@ const HmsSection1 = () => {
           <h1 className="hms-hero-title flex items-center justify-center font-bold text-[#1E293B] 
                 text-[28px] md:text-[40px] lg:text-[56px]" 
               style={{ fontFamily: '"Public Sans", sans-serif' }}>
-            Currently in Development 
+            Currently In Development 
             <img src={sms_gif} alt="sms_gif" className="w-30 h-30 ml-0 md:w-55 md:h-55 ml-9" />
           </h1>
 
@@ -41,16 +41,36 @@ const HmsSection1 = () => {
         <div>
           <div style={{ display: "flex", justifyContent: "center", paddingTop: "60px", position: "relative" }}>
             <div className="hms-hero-bg">
-              <img className="hms-shape" src={at} alt="at" style={{ height: "32px", position: 'absolute', left: "-140px", top: "-100px" }} />
-              <img className="hms-shape" src={tm} alt="tm" style={{ height: "32px", position: 'absolute', left: "-200px", bottom: "-20px" }} />
-              <img className="hms-shape" src={cm} alt="cm" style={{ height: "32px", position: 'absolute', right: "-190px", bottom: "-60px" }} />
+              <img
+                src={at}
+                alt="adm"
+                className="hidden sm:block absolute md:h-[35px] md:w-[160px] xl:w-[185px] lg:w-[175px]  xl:h-[45px]
+                -left-6 md:-left-[50px] lg:-left-[80px] 
+                -top-6 md:-top-[100px]"
+              />
+              
+              <img
+                src={tm}
+                alt="exm"
+                className="hidden sm:block absolute md:h-[35px] md:w-[160px] xl:w-[185px] lg:w-[175px]  xl:h-[45px]
+                -left-6 md:-left-[20px] lg:-left-[30px]
+                -bottom-2 md:-bottom-[50px] lg:-bottom-[60px]"
+              />
+              
+              <img
+                src={cm}
+                alt="att"
+                className="hidden sm:block absolute md:h-[35px] md:w-[160px] xl:w-[185px] lg:w-[175px]  xl:h-[45px]
+                -right-6 md:-right-[40px] lg:-right-[30px]
+                -bottom-4 md:-bottom-[50px]"
+              />
             </div>
           </div>
         </div>
         <div style={{ paddingTop: "75px" }}>
           <div style={{ textAlign: "center", display: "flex", justifyContent: "center", gap: "10px", paddingBottom: "15px" }} className="button-container">
-            <button style={{ fontFamily: '"Public Sans", sans-serif', backgroundColor: "#1788c071", color: "white", padding: "8px 15px", borderRadius: "25px" }}>Smarter HR</button>
-            <button style={{ fontFamily: '"Public Sans", sans-serif', backgroundColor: "#1788c071", color: "white", padding: "8px 15px", borderRadius: "25px" }}>Happier Teams</button>
+            <button style={{ fontFamily: '"Public Sans", sans-serif', backgroundColor: "#1788c071", color: "white", padding: "8px 15px", borderRadius: "25px" }}>Stay Management</button>
+            <button style={{ fontFamily: '"Public Sans", sans-serif', backgroundColor: "#1788c071", color: "white", padding: "8px 15px", borderRadius: "25px" }}>Room Management</button>
             <button style={{ fontFamily: '"Public Sans", sans-serif', backgroundColor: "#1788c071", color: "white", padding: "8px 15px", borderRadius: "25px" }}>Seamless Growth</button>
           </div>
           <div className="hero-heading-container" style={{ textAlign: 'center', display: "flex", gap: "20px", flexDirection: "column", justifyContent: 'center' }}>

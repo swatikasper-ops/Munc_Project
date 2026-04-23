@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import B_IMS from "../../assets/HrmsImg/HRMS_NEW.png";
+import B_IMS from "../../assets/HrmsImg/new_img.png";
 import Cloud1 from "../../assets/HrmsImg/cloud1.png";
 import Cloud2 from "../../assets/HrmsImg/cloud2.png";
 import Green from "../../assets/HrmsImg/green.png";
 import Pink from "../../assets/HrmsImg/pink.png";
-import Orange from "../../assets/HrmsImg/orange.png";
+import Orange from "../../assets/HrmsImg/orangee.png";
 import Contact from "../../components/navbar/Contact";
 
 const HrmsSection1 = () => {
@@ -13,7 +13,6 @@ const HrmsSection1 = () => {
   return (
     <>
       <div className="w-full flex flex-col items-center overflow-hidden relative">
-
         {/* BACKGROUND */}
         <div
           className="
@@ -34,11 +33,16 @@ const HrmsSection1 = () => {
 
         {/* CONTENT */}
         <div className="absolute top-0 w-full z-10">
-
           {/* CLOUDS */}
           <div className="absolute inset-0 pointer-events-none">
-            <img src={Cloud1} className="absolute top-[18%] left-0 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[420px]" />
-            <img src={Cloud2} className="absolute top-[10px] right-0 w-[160px] sm:w-[250px] md:w-[320px] lg:w-[650px]" />
+            <img
+              src={Cloud1}
+              className="absolute top-[18%] left-0 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[420px]"
+            />
+            <img
+              src={Cloud2}
+              className="absolute top-[10px] right-0 w-[160px] sm:w-[250px] md:w-[320px] lg:w-[650px]"
+            />
           </div>
 
           {/* MAIN */}
@@ -80,13 +84,12 @@ const HrmsSection1 = () => {
                         {item}
                       </span>
                     </div>
-                  )
+                  ),
                 )}
               </div>
 
               {/* CONTENT BLOCK */}
               <div className="mt-4 flex flex-col gap-1 lg:items-start xl:items-start md:items-center sm:items-center w-full">
-
                 {/* HEADING */}
                 <h1
                   className="
@@ -126,10 +129,12 @@ const HrmsSection1 = () => {
                   "
                   style={{ maxWidth: "700px" }}
                 >
-                  Your people are the heart of your business — and managing them should be simple.
-                  With MUN-C HR Management Software (HRMS), you can take control of your workforce
-                  with clarity and confidence. From new hires to payroll, performance, and beyond —
-                  everything runs smoothly through one intelligent platform designed for modern businesses.
+                  Your people are the heart of your business — and managing them
+                  should be simple. With MUN-C HR Management Software (HRMS),
+                  you can take control of your workforce with clarity and
+                  confidence. From new hires to payroll, performance, and beyond
+                  — everything runs smoothly through one intelligent platform
+                  designed for modern businesses.
                 </p>
 
                 {/* BUTTON */}
@@ -156,11 +161,12 @@ const HrmsSection1 = () => {
 
                 lg:pr-[0px] xl:pr-[0px] 2xl:pr-[0px]
               "
-            >{/* IMAGE */}
-<img
-  src={B_IMS}
-  alt="HRMS Dashboard"
-  className="
+            >
+              {/* IMAGE */}
+              <img
+                src={B_IMS}
+                alt="HRMS Dashboard"
+                className="
     w-full
     sm:w-[600px]
     md:w-[700px]
@@ -174,36 +180,37 @@ const HrmsSection1 = () => {
     2xl:max-h-[550px]
     object-contain
   "
+              />
+
+<img
+  src={Green}
+  className="
+    absolute
+    top-[-14%] md:top-[-11%]  lg:top-[-16%]
+    right-[55%] md:right-[60%]
+
+    w-[60px] md:w-[100px] lg:w-[120px]
+    xl:w-[139px]
+  "
+/>
+<img
+  src={Orange}
+  className="
+    absolute bottom-[-12%] right-[5%]   lg:bottom-[-16%]
+ w-[60px] md:w-[100px] lg:w-[120px]
+    xl:w-[135px]
+  "
 />
 
-              {/* GREEN */}
-              <img
-                src={Green}
-                className="
-                  absolute 
-                  top-[-10%] lg:top-[-15%]
-                  right-[60%]
-                  w-[50px] sm:w-[70px] md:w-[80px] lg:w-[110px]
-                "
-              />
+         <img
+  src={Pink}
+  className="
+    absolute bottom-[-12%] left-[5%] lg:bottom-[-16%]
 
-              {/* ORANGE */}
-              <img
-                src={Orange}
-                className="
-                  absolute bottom-[-10%] right-[8%]
-                  w-[50px] sm:w-[70px] md:w-[90px] lg:w-[120px]
-                "
-              />
-
-              {/* PINK */}
-              <img
-                src={Pink}
-                className="
-                  absolute bottom-[-10%] left-[2%]
-                  w-[50px] sm:w-[70px] md:w-[90px] lg:w-[120px]
-                "
-              />
+   w-[60px] md:w-[100px] lg:w-[120px]
+    xl:w-[135px]
+  "
+/>
             </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import FollowUpOne from "../../assets/OurStory/followupone.png";
-import Stockone from "../../assets/OurStory/stockone.png";
-import Payroll from "../../assets/OurStory/payroll.png";
+
+import swati from "../../assets/AboutImg/swati.JPG"
+import swatiii from "../../assets/AboutImg/swatiii.JPG"
+import illima from "../../assets/AboutImg/illima.jpg"
 import { useNavigate } from "react-router-dom"; // 1. Import this
 const tabs = ["People", "Inventory", "Leads"];
 
@@ -11,7 +12,7 @@ const content = {
         titletwo: "Smart Access & Tracking with RFID",
         descone: "Handle employee payroll like never before with MUN-C’s HR Management System, a core part of our Business Management Suite (BMS).",
         desctwo: "Automate attendance, asset tracking, and access control using RFID technology for faster, error-free operations.",
-        image: Payroll,
+        image: swati,
         link: "/products/human-resource-management-system"
     },
     Inventory: {
@@ -19,7 +20,7 @@ const content = {
         titletwo: "Boost Engagement with Points & Rewards",
         descone: "Manage billing, payments and transactions effortlessly with a fast, reliable point of sale systems.",
         desctwo: "Enhance customer experience with automated points rewards and redemption systems.",
-        image: Stockone,
+        image: swatiii,
         link: "/products/inventory-management-system"
     },
     Leads: {
@@ -27,7 +28,7 @@ const content = {
         titletwo: "Never Miss a Follow-Up",
         descone: "Monitor lead progress from inquiry to conversion with a clear and structured sales pipeline.",
         desctwo: "Boost your sales and customer engagement using MUN-C's Lead Management Software(LMS). Automate reminders, assign leads, and track every stage of the sales journey. Stay on top of client calls follow-ups, and deals.",
-        image: FollowUpOne,
+        image: illima,
      
         link: "/products/lead-management-system"
     },

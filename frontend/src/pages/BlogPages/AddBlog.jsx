@@ -8,8 +8,6 @@ import JoditEditor from "jodit-react";
 import BASE_URL from "../Config/config";
 import { Helmet } from "react-helmet-async";
 
-// import { Editor } from "@tinymce/tinymce-react";
-
 const AddBlog = () => {
   const editor = useRef(null);
   const [content, setContent] = useState("");
@@ -26,6 +24,13 @@ const AddBlog = () => {
 
   const [categories, setCategories] = useState([]);
   const [imageSource, setImageSource] = useState("file");
+  const [previewImages, setPreviewImages] = useState([]);
+
+  // ✅ Removes: chat button + "Powered by Jodit" footer
+  const joditConfig = {
+    removeButtons: ["chat"],
+    statusbar: false,
+  };
 
   useEffect(() => {
     const fetchAllcategories = async () => {
@@ -61,36 +66,47 @@ const AddBlog = () => {
   };
 
   const handleImageUpload = (e) => {
-    const file = e.target.files[0]; // ✅ Get the first file
+    const file = e.target.files[0];
 
     if (!file) return;
 
     const validTypes = ["image/jpeg", "image/png", "image/jpg"];
 
     if (!validTypes.includes(file.type)) {
-      alert("Only JPG and PNG image files are allowed.");
+      toast.error("Only JPG and PNG image files are allowed.");
       e.target.value = null;
       return;
     }
 
     if (file.size > 2 * 1024 * 1024) {
-      alert("File size must be less than 2MB.");
+      toast.error("File size must be less than 2MB.");
       e.target.value = null;
       return;
     }
 
-    // ✅ If valid, update state
     setFormData({
       ...formData,
-      imageFiles: [file], // or just file if you're handling single file
+      imageFiles: [file],
+      imageURL: "",
     });
+
+    const previewURL = URL.createObjectURL(file);
+    setPreviewImages([previewURL]);
   };
 
   const handleImageURLChange = (e) => {
+    const url = e.target.value;
     setFormData({
       ...formData,
-      imageURL: e.target.value,
+      imageURL: url,
+      imageFiles: [],
     });
+
+    if (url && (url.startsWith("http") || url.startsWith("https"))) {
+      setPreviewImages([url]);
+    } else {
+      setPreviewImages([]);
+    }
   };
 
   const handleCategoryChange = (e) => {
@@ -120,14 +136,12 @@ const AddBlog = () => {
     formdata.append("description", formData.description);
     formdata.append("user", id);
 
-    if (formData.imageFiles.length) {
+    if (imageSource === "file" && formData.imageFiles.length) {
       formData.imageFiles.forEach((file) => {
         formdata.append("thumbnail", file);
       });
-    }
-
-    if (formData.imageURL) {
-      formdata.append("image", formData.imageURL);
+    } else if (imageSource === "url" && formData.imageURL) {
+      formdata.append("thumbnail", formData.imageURL);
     }
 
     try {
@@ -143,8 +157,10 @@ const AddBlog = () => {
       );
 
       if (data?.success) {
-        toast.success("Blog added successfully");
+        toast.success("Blog added successfully!");
         navigate("/adminsidebar/my-blogs");
+      } else {
+        toast.error(data?.message || "Error adding blog");
       }
     } catch (error) {
       toast.error("Error adding blog");
@@ -234,35 +250,15 @@ const AddBlog = () => {
                     <JoditEditor
                       ref={editor}
                       value={formData.description}
+                      config={joditConfig}
                       onChange={contentFieldChanged}
                     />
-                    {/* <Editor
-                    apiKey="your-tinymce-api-key" // optional, works without too
-                    init={{
-                      height: 500,
-                      menubar: true,
-                      plugins: [
-                        "advlist autolink lists link image charmap preview anchor",
-                        "searchreplace visualblocks code fullscreen",
-                        "insertdatetime media table code help wordcount",
-                      ],
-                      toolbar:
-                        "undo redo | formatselect | bold italic backcolor | \
-                        alignleft aligncenter alignright alignjustify | \
-                        bullist numlist outdent indent | removeformat | help | media",
-                    }}
-                    value={formData.description}
-                    onEditorChange={contentFieldChanged}
-                  /> */}
                   </div>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                   <Form.Label className="add-form">Main Image</Form.Label>
-                  <div
-                    className="d-flex gap-3 mb-2 
-                "
-                  >
+                  <div className="d-flex gap-3 mb-2">
                     <Form.Check
                       inline
                       label={
@@ -276,7 +272,15 @@ const AddBlog = () => {
                       id="fileOption"
                       value="file"
                       checked={imageSource === "file"}
-                      onChange={() => setImageSource("file")}
+                      onChange={() => {
+                        setImageSource("file");
+                        setPreviewImages([]);
+                        setFormData({
+                          ...formData,
+                          imageURL: "",
+                          imageFiles: [],
+                        });
+                      }}
                     />
                     <Form.Check
                       inline
@@ -291,26 +295,71 @@ const AddBlog = () => {
                       id="urlOption"
                       value="url"
                       checked={imageSource === "url"}
-                      onChange={() => setImageSource("url")}
+                      onChange={() => {
+                        setImageSource("url");
+                        setPreviewImages([]);
+                        setFormData({
+                          ...formData,
+                          imageFiles: [],
+                          imageURL: "",
+                        });
+                      }}
                     />
                   </div>
 
                   {imageSource === "file" ? (
-                    <Form.Control
-                      className="image-url-input"
-                      type="file"
-                      accept="image/*"
-                      multiple
-                      onChange={handleImageUpload}
-                    />
+                    <>
+                      <Form.Control
+                        className="image-url-input"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                      />
+
+                      {previewImages.length > 0 && (
+                        <div className="mt-3">
+                          <img
+                            src={previewImages[0]}
+                            alt="Preview"
+                            style={{
+                              width: "200px",
+                              height: "150px",
+                              objectFit: "cover",
+                              borderRadius: "8px",
+                            }}
+                          />
+                        </div>
+                      )}
+                    </>
                   ) : (
-                    <Form.Control
-                      className="image-url-input"
-                      type="text"
-                      placeholder="Enter Image URL"
-                      value={formData.imageURL}
-                      onChange={handleImageURLChange}
-                    />
+                    <>
+                      <Form.Control
+                        className="image-url-input"
+                        type="text"
+                        placeholder="Enter Image URL (e.g., https://example.com/image.jpg)"
+                        value={formData.imageURL}
+                        onChange={handleImageURLChange}
+                      />
+
+                      {previewImages.length > 0 && previewImages[0] && (
+                        <div className="mt-3">
+                          <img
+                            src={previewImages[0]}
+                            alt="Preview"
+                            style={{
+                              width: "200px",
+                              height: "150px",
+                              objectFit: "cover",
+                              borderRadius: "8px",
+                            }}
+                            onError={(e) => {
+                              e.target.style.display = "none";
+                              toast.error("Invalid image URL or image not found");
+                            }}
+                          />
+                        </div>
+                      )}
+                    </>
                   )}
                 </Form.Group>
 
@@ -329,3 +378,4 @@ const AddBlog = () => {
 };
 
 export default AddBlog;
+

@@ -3,7 +3,7 @@ import AboutImg1 from "../../assets/AboutImg/About1.jpg";
 import AboutImg from "../../assets/AboutImg/AboutImg.jpg";
 import AboutImg3 from "../../assets/AboutImg/AboutImg3.jpg";
 import AboutImg4 from "../../assets/AboutImg/AboutImg4.jpg";
-import AboutImg5 from "../../assets/AboutImg/AboutImg6.jpg";
+
 import AboutImg6 from "../../assets/AboutImg/AboutImg5.jpg";
 import AboutImg7 from "../../assets/AboutImg/AboutImg7.jpg";
 import AboutImg2 from "../../assets/AboutImg/About2.png";
@@ -20,7 +20,7 @@ const About = () => {
     AboutImg,
     AboutImg3,
     AboutImg4,
-    AboutImg5,
+
     AboutImg6,
     AboutImg7,
   ];

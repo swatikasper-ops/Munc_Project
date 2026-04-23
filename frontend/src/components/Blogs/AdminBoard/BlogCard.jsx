@@ -22,9 +22,8 @@ const BlogCard = ({
   const navigate = useNavigate();
 
   const handleEdit = () => {
-    navigate(`/blog-details/${slug || id}`);
-  };
-
+  navigate(`/adminsidebar/edit-blog/${slug || id}`);  // ✅ CORRECT - navigate to edit page
+};
   const handleView = () => {
     navigate(`/blogpost/${slug}`);
   };
@@ -48,6 +47,7 @@ const BlogCard = ({
     return image && image.trim() ? image : ThumbnailPlaceholder;
   };
 
+
   return (
     <div
       className="bg-white rounded-2xl shadow-md overflow-hidden 
@@ -62,11 +62,6 @@ const BlogCard = ({
           onClick={handleView}
           className="w-full h-48 object-cover rounded-2xl cursor-pointer"
         />
-
-        <span className="absolute bottom-2 left-2 flex items-center gap-1 bg-white border text-[#007AFF] px-[8px] py-[4px] rounded-full text-xs font-medium shadow">
-          {icon}
-          {username}
-        </span>
 
         {/* Actions for Owner */}
         {isUser && (
@@ -87,15 +82,22 @@ const BlogCard = ({
 
       {/* Content */}
       <div className="py-2">
-        <span className="block text-[10px] leading-[120%] text-[#7D7D7D] mb-1">
-          {time
-            ? new Date(time).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              })
-            : "No date available"}
-        </span>
+        <div className="flex items-center gap-2 mb-1">
+          <span className="flex items-center gap-1 bg-white border text-[#007AFF] px-[8px] py-[3px] rounded-full text-[10px] font-semibold ">
+            {icon}
+            {username || "Unknown"}
+          </span>
+
+          <span className="text-[10px] text-[#7D7D7D]">
+            {time
+              ? new Date(time).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })
+              : "No date"}
+          </span>
+        </div>
 
         <h3 className="text-base font-medium text-gray-800">{title}</h3>
 

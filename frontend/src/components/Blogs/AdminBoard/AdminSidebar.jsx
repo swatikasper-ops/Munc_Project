@@ -19,6 +19,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
 import CategoryIcon from "@mui/icons-material/Category";
 import CreateIcon from "@mui/icons-material/Create";
+import EditIcon from "@mui/icons-material/Edit";
 import { BoxIcon, Phone } from "lucide-react";
 
 const AdminLayouts = () => {
@@ -44,6 +45,7 @@ const AdminLayouts = () => {
     "home",
     "contact-list",
     "product-demo-list",
+    "edit-blog", // Add this to hide sidebar on edit page
   ].some((page) => location.pathname.includes(page));
 
   const base = "/adminsidebar";
@@ -88,7 +90,7 @@ const AdminLayouts = () => {
       icon: <Phone />,
     },
     {
-      label: "Product Demos",
+      label: "Product Demo",
       path: `${base}/product-demo-list`,
       key: "product",
       icon: <BoxIcon />,
@@ -107,6 +109,7 @@ const AdminLayouts = () => {
 
     if (path.includes("my-blogs")) setSelectedTab("my-blogs");
     else if (path.includes("addblog")) setSelectedTab("addblog");
+    else if (path.includes("edit-blog")) setSelectedTab("my-blogs"); // Edit shows My Blogs as active
     else if (path.includes("addcategory")) setSelectedTab("addcategory");
     else if (path.includes("profile")) setSelectedTab("profile");
     else if (path.includes("contact-list")) setSelectedTab("contact");

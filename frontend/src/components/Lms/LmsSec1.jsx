@@ -171,34 +171,36 @@ const LmsSec1 = () => {
                 "
               />
 
-              {/* GREEN */}
-              <img
-                src={Green}
-                className="
-                  absolute 
-                  top-[-10%] lg:top-[-15%]
-                  right-[60%]
-                  w-[50px] sm:w-[70px] md:w-[80px] lg:w-[110px]
-                "
-              />
-
-              {/* ORANGE */}
-              <img
-                src={Orange}
-                className="
-                  absolute bottom-[-15%] right-[8%]
-                  w-[50px] sm:w-[70px] md:w-[90px] lg:w-[120px]
-                "
-              />
-
-              {/* PINK */}
-              <img
-                src={Pink}
-                className="
-                  absolute bottom-[-15%] left-[2%]
-                  w-[50px] sm:w-[70px] md:w-[90px] lg:w-[120px]
-                "
-              />
+            
+            <img
+              src={Green}
+              className="
+                absolute
+                top-[-17%] md:top-[-13%]  lg:top-[-16%]  sm:top-[-13%]
+                right-[55%] md:right-[60%]
+            
+                w-[70px] md:w-[100px] lg:w-[120px]
+                xl:w-[135px]
+              "
+            />
+            <img
+              src={Orange}
+              className="
+                absolute bottom-[-16%] right-[5%]   lg:bottom-[-16%]
+             w-[70px] md:w-[100px] lg:w-[120px]
+                xl:w-[135px]
+              "
+            />
+            
+                     <img
+              src={Pink}
+              className="
+                absolute bottom-[-17%] left-[5%] lg:bottom-[-16%]
+            
+               w-[70px] md:w-[100px] lg:w-[120px]
+                xl:w-[135px]
+              "
+            />
             </div>
           </div>
         </div>

@@ -12,122 +12,94 @@ import BASE_URL from "../Config/config";
 
 const CategoryBlogs = () => {
   const { slug } = useParams();
- 
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [blogs, setBlogs] = useState([]);
+  const [category, setCategory] = useState(null);
+  const [loading, setLoading] = useState(true);
+  console.log(blogs)
 
   useEffect(() => {
-
-    const fetchBlogsByCategory = async () => {
+    const fetchCategoryBlogs = async () => {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `${BASE_URL}/api/v1/blog/category/${slug}`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
+          `${BASE_URL}/api/v1/category/category/${slug}`
         );
-
+        
         if (data?.success) {
           setBlogs(data.blogs || []);
+          if (data.blogs && data.blogs.length > 0) {
+            setCategory(data.blogs[0]?.category);
+          }
         } else {
-          setError("Failed to load category blogs.");
+          setBlogs([]);
         }
-      } catch (err) {
-        console.error("Error fetching category blogs:", err.message);
-        setError("Something went wrong.");
+      } catch (error) {
+        console.error("Error fetching category blogs:", error);
+        setBlogs([]);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchBlogsByCategory();
+    if (slug) {
+      fetchCategoryBlogs();
+    }
   }, [slug]);
 
-  // if (loading) return <p className="text-center">Loading blogs...</p>;
   if (loading) {
     return (
-      <div className="text-center mt-5">
-        <div className="spinner-border text-primary" role="status" />
+      <div className="container mt-5">
+        <h3>Loading category blogs...</h3>
       </div>
     );
   }
-  
-  if (error) return <p className="text-danger text-center">{error}</p>;
-
-  const getPlainText = (html) => {
-    const sanitized = DOMPurify.sanitize(html);
-    return sanitized.replace(/<[^>]+>/g, '');
-  };
-  
 
   return (
-    <>
- <div className="container mt-5 ">
-      <Link to="/home" className="backto_home text-decoration-none">
-  <p className="custom-back-btn">
-    <IoIosArrowBack className="me-2" />
-    <span>Back to Home</span>
-  </p>
-</Link>
-   
-      
-      {/* <h2 className="mb-4 mt-4">Blogs in This Category</h2> */}
-      <h2 className="mb-4 mt-4">
-  Blogs in "{blogs[0]?.category?.title}" Category
-</h2>
-
-
-      {blogs.length === 0 ? (
-        <p>No blog posts found for this category.</p>
-      ) : (
-        blogs.map((blog) => (
-          <div
-            key={blog._id}
-            className="card mb-4 p-3 shadow-sm"
-            style={{ display: "flex", flexDirection: "row", gap: "20px" , cursor: "pointer" }}
-            onClick={() => navigate(`/blog/${blog.slug || blog._id}`)}
-          >
-          
-
-            {/* Content */}
-            <div style={{ flex: "3" }}>
-              <p className="text-muted mb-1">
-              <strong className="bg-primary text-white px-2 py-1 rounded">
-  {blog?.category?.title || "N/A"}
-</strong>
-
-               
-              </p>
-              <h4>{blog.title}</h4>
-              <p className="mb-0">
-            
-              {getPlainText(DOMPurify.sanitize(blog.description))?.split(" ").slice(0, 40).join(" ")}
-              </p>
-              <small className="text-muted">{moment(blog.createdAt).format("LL")}</small>
-
-            </div>
-
-              {/* Image */}
-              <div style={{ flex: "1", minWidth: "200px" }}>
-              <img
-                src={`${BASE_URL}${blog.thumbnail}`}
-                alt={blog.title}
-                className="img-fluid rounded"
-                style={{ maxHeight: "180px", objectFit: "cover", width: "100%" }}
-              />
-            </div>
+    <section className="bg-[#FFFFFF] py-24 px-6 md:px-20">
+      <div className="container mx-auto">
+        <h1 className="text-3xl font-bold mb-8">
+          {category?.title ? `${category.title} Blogs` : "Category Blogs"}
+        </h1>
+        
+        {blogs.length === 0 ? (
+          <div className="text-center py-10">
+            <h3 className="text-xl text-gray-600">No blogs found in this category</h3>
           </div>
-        ))
-      )}
-    </div>
-    </>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {blogs.map((blog) => (
+              <div 
+                key={blog._id} 
+                className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+                onClick={() => navigate(`/blogpost/${blog.slug || blog._id}`)}
+              >
+                <img 
+                  src={blog.thumbnail?.[0] || blog.image || "/imgthumb.png"} 
+                  alt={blog.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <h2 className="text-xl font-semibold mb-2 line-clamp-2">
+                    {blog.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm mb-2">
+                    {moment(blog.createdAt).format("LL")}
+                  </p>
+                  <p className="text-gray-700 line-clamp-3">
+                    {blog.description?.replace(/<[^>]*>/g, '').substring(0, 150)}...
+                  </p>
+                  <p className="text-blue-600 mt-3 text-sm font-medium">
+                    Read More →
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 
 export default CategoryBlogs;
-
