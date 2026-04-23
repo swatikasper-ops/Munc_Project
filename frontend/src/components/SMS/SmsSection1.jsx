@@ -125,7 +125,7 @@ const SmsSection1 = () => {
                 borderRadius: "25px",
               }}
             >
-              staff Management
+              Staff Management
             </button>
             <button
               style={{
