@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import swati from "../../assets/AboutImg/swati.JPG"
-import swatiii from "../../assets/AboutImg/swatiii.JPG"
+import swati from "../../assets/AboutImg/swati.jpg"
+import swatiii from "../../assets/AboutImg/swatii.JPG"
 import illima from "../../assets/AboutImg/illima.jpg"
 import { useNavigate } from "react-router-dom"; // 1. Import this
 const tabs = ["People", "Inventory", "Leads"];
