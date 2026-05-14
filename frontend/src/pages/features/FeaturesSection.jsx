@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import swati from "../../assets/AboutImg/swati.jpg"
 import swatiii from "../../assets/AboutImg/swatii.JPG"
 import illima from "../../assets/AboutImg/illima.jpg"
-import { useNavigate } from "react-router-dom"; // 1. Import this
+import { useNavigate } from "react-router-dom"; 
 const tabs = ["People", "Inventory", "Leads"];
 
 const content = {
@@ -27,7 +27,7 @@ const content = {
         titleone: "Track Leads Accross Every Stage",
         titletwo: "Never Miss a Follow-Up",
         descone: "Monitor lead progress from inquiry to conversion with a clear and structured sales pipeline.",
-        desctwo: "Boost your sales and customer engagement using MUN-C's Lead Management Software(LMS). Automate reminders, assign leads, and track every stage of the sales journey. Stay on top of client calls follow-ups, and deals.",
+        desctwo: "Boost your sales and customer engagement using MUN-C's Lead Management Software(LMS).Automate reminders, assign leads, and track every stage of the sales journey. Stay on top of client calls follow-ups, and deals.",
         image: illima,
      
         link: "/products/lead-management-system"

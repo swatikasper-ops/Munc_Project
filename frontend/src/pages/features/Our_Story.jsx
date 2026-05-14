@@ -21,7 +21,7 @@ const Our_Story = () => {
                 fontWeight: 700,
                 fontFamily: "Public Sans, sans-serif",
                 color: "rgba(37, 118, 250, 1)",
-                lineHeight: "1.2",// This ensures it centers on small and shifts left on large (1024px+)
+                lineHeight: "1.2",
             textAlign: window.innerWidth >= 1024 ? "left" : "center"
             }}
         >
