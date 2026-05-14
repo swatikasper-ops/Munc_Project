@@ -20,7 +20,7 @@ const app = express();
 
 //middlewares
 const corsOptions = {
-  origin: ["https://mymunc.com", "http://localhost:3000"],
+  origin: ["https://mymunc.com", "http://localhost:3000", "http://localhost:3001"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true,
 };

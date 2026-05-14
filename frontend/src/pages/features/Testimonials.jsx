@@ -8,17 +8,10 @@ import Person_6 from "../../assets/AboutImg/Person_6.jpg"
 import Person_7 from "../../assets/AboutImg/Person_7.jpg"
 import Person_8 from "../../assets/AboutImg/Person_8.jpg"
 import Person_9 from "../../assets/AboutImg/Person_9.jpg"
-import Person_10 from "../../assets/AboutImg/Person_10.jpg"
-import Person_11 from "../../assets/AboutImg/Person_11.jpg"
-import Person_12 from "../../assets/AboutImg/Person_12.jpg"
-import Person_13 from "../../assets/AboutImg/Person_13.jpg"
-import Person_14 from "../../assets/AboutImg/Person_14.jpg"
-import Person_15 from "../../assets/AboutImg/Person_15.jpg"
 
 const allImages = [
   Person_1, Person_2, Person_3, Person_4, Person_5,
-  Person_6, Person_7, Person_8, Person_9, Person_10,
-  Person_11, Person_12, Person_13, Person_14, Person_15
+  Person_6, Person_7, Person_8, Person_9
 ];
 
 const data = [
@@ -52,12 +45,7 @@ const data = [
     text: "The POS and billing system works smoothly and is very fast. My staff can handle billing easily even during peak hours. It has improved customer experience and reduced waiting time at the counter.",
     image: allImages[4],
   },
-  {
-    name: "Anjali Mehta",
-    role: "Business Owner",
-    text: "What I like most about MUN-C is that everything is available in one platform. I don't need multiple software anymore. It is cost-effective and very useful for managing different parts of the business.",
-    image: allImages[12],
-  },
+
   {
     name: "Sandeep Yadav",
     role: "IT Manager",
@@ -76,42 +64,8 @@ const data = [
     text: "MUN-C helped us manage multiple branches from one dashboard. Stock tracking, sales reports, and team management are all in one place. It gives complete control over operations.",
     image: allImages[8],
   },
-  {
-    name: "Sneha Iyer",
-    role: "Business Analyst",
-    text: "The reporting and analytics features are very powerful. We can see business performance in real time and make better decisions. It has helped us grow faster with clear insights.",
-    image: allImages[9],
-  },
-  {
-    name: "Karan Malhotra",
-    role: "Operations Manager",
-    text: "MUN-C made our daily operations much easier. Earlier we were using multiple tools, but now everything is in one place. It saves time, reduces confusion, and gives us better control over our business processes.",
-    image: allImages[10],
-  },
-  {
-    name: "Shubham",
-    role: "Inventory Manager",
-    text: "The interface is very clean and easy to understand. I was able to manage inventory and sales without any technical knowledge. It has improved our workflow and made our team more productive.",
-    image: allImages[11],
-  },
-  {
-    name: "Neha Gupta",
-    role: "Supply Chain Manager",
-    text: "We were facing issues with stock mismatches earlier. After using MUN-C, everything is tracked properly. The real-time updates and reports help us avoid mistakes and manage inventory more efficiently.",
-    image: allImages[5],
-  },
-  {
-    name: "Ritika Kapoor",
-    role: "Sales Director",
-    text: "Lead management has become very organized. We can now track every lead, assign tasks, and follow up on time. This has increased our sales conversions and improved team coordination.",
-    image: allImages[13],
-  },
-  {
-    name: "Deepak Joshi",
-    role: "Billing Manager",
-    text: "The billing system is fast and accurate. It handles everything smoothly, even during peak hours. My staff finds it very easy to use, and customers are served quickly without delays.",
-    image: allImages[14],
-  },
+ 
+
 ];
 
 const Testimonials = () => {
